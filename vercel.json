@@ -1,19 +1,4 @@
 {
   "version": 2,
-  "framework": "container",
-  "services": {
-    "web": {
-      "root": ".",
-      "runtime": "container",
-      "entrypoint": "dockerfile.vercel"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": {
-        "service": "web"
-      }
-    }
-  ]
+  "framework": "container"
 }
