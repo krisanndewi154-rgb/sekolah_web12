@@ -1,0 +1,25 @@
+FROM dunglas/frankenphp:1-php8.3
+
+# Install ekstensi PHP yang umum dibutuhkan Laravel
+RUN install-php-extensions pdo pdo_mysql mbstring zip gd
+
+# Set working directory
+WORKDIR /app
+
+# Copy composer files dulu untuk caching layer
+COPY composer.json composer.lock ./
+
+# Install dependensi tanpa script (untuk caching)
+RUN composer install --no-dev --no-interaction --no-progress --no-scripts --prefer-dist --optimize-autoloader
+
+# Copy seluruh aplikasi
+COPY . .
+
+# Jalankan post-autoload scripts (package discovery Laravel)
+RUN composer dump-autoload --optimize
+
+# Copy Caddyfile (konfigurasi server)
+COPY Caddyfile /etc/caddy/Caddyfile
+
+# Expose port default
+EXPOSE 80
