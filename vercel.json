@@ -1,3 +1,4 @@
 {
-  "framework": "container"
+  "framework": "vite",
+  "outputDirectory": "public/build"
 }
