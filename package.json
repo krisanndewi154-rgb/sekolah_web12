@@ -2,9 +2,10 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
-    },
+    "build": "vite build",
+    "dev": "vite",
+    "start": "php artisan serve --host=0.0.0.0 --port=80"
+  },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.7.4",
