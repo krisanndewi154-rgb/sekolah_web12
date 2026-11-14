@@ -1,3 +1,9 @@
 {
-  "framework": "container"
+  "framework": "container",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
